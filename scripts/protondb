@@ -1,0 +1,17 @@
+#!/bin/bash
+
+protondb_url="https://www.protondb.com/"
+protondb_url_query="search?q="
+
+url=$protondb_url
+
+if [ $# -ne 0 ] 
+then
+ url+=$protondb_url_query
+ for var in "$@" 
+ do
+   url+=$var+"+"
+ done
+fi
+
+firefox $url &

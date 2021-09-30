@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Middle click to scroll
+Exec="/home/hakej/.config/autostart/middle_click_to_scroll"
+X-GNOME-Autostart-enabled=true
+Terminal=false
+NoDisplay=true

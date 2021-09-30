@@ -1,0 +1,11 @@
+#!/bin/bash
+
+path="$HOME/Videos/"
+
+echo "Listening for new videos on $path"
+
+while true; do
+ message=$(inotifywait $path -q -e create)
+ notify-send "Video saved!" "${message//$path/}"
+ paplay "/usr/share/sounds/video_saved.wav" &
+done

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Run OBS hidden in tray with replay buffer enabled
+Exec=obs --startreplaybuffer --minimize-to-tray
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true

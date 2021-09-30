@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 # blackwidow_enable.py
 #
@@ -12,6 +12,7 @@
 
 import sys
 import usb
+import time
 
 USB_VENDOR = 0x1532  # Razer
 ##### If you don't know the USB_PRODUCT ID, run
@@ -93,7 +94,11 @@ def main():
     except:
         sys.stderr.write("Unable to release interface.\n")
         sys.exit(1)
-
+    
+    #map_functional_keys_command = "xmodmap -e \"keycode 191 = F13\" && xmodmap -e \"keycode 192 = F14\" && xmodmap -e \"keycode 193 = F15\" && xmodmap -e \"keycode 194 = F16\" && xmodmap -e \"keycode 195 = F17\""
+    #import subprocess
+    #subprocess.check_call(map_functional_keys_command, shell=True)
+    
     sys.exit(0)
 
 if __name__ == "__main__":

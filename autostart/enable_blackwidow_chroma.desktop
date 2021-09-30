@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Enable Blackwidow Chroma
+Exec="/home/hakej/.config/autostart/enable_blackwidow_chroma.py"
+X-GNOME-Autostart-enabled=true
+Terminal=false
+NoDisplay=true

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Enable notification when saving a video from OBS Replay Buffer
+Exec="/home/hakej/.config/autostart/notify_video_save"
+X-GNOME-Autostart-enabled=true
+Terminal=false
+NoDisplay=true
