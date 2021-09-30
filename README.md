@@ -1,2 +1,2 @@
-# bash-scripts
-Collection of bash scripts I'm using in Linux operating systems.
+# Linux Scripts
+Collection of scripts/shortcuts I'm using on Linux operating systems.
