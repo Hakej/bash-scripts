@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ "$#" -ne 2 ]; then
+    echo "Illegal number of parameters"
+    exit -1
+fi
+
+sha_result=$(sha512sum $1 | sed s/"  "$1//)
+
+if $sha_result; then
+    exit -1
+fi
+
+echo "Result: |$sha_result|"
+echo "Passed: |$2|"
+
+if [ "$sha_result" == "$2" ]; then
+ echo $'\e[1;32m'Check sum match.$'\e[0m'
+else
+ echo $'\e[1;31m'Check sum doesn\'t match!!!$'\e[0m'
+fi
