@@ -1,0 +1,13 @@
+#!/bin/bash
+
+url="https://www.protondb.com/search?q="
+
+game_name=$(kdialog --inputbox "Insert game name" --title "protondb")
+
+for var in $game_name
+do
+    url+=$var+"+"
+done
+
+vivaldi $url &
+#firefox $url &
