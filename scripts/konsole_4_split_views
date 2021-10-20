@@ -1,0 +1,27 @@
+#!/bin/bash
+
+fullscreen_flag='false'
+
+while getopts 'f' flag; do
+  case "${flag}" in
+    f) fullscreen_flag='true'
+  esac
+done
+
+konsole &
+konsole_pid=$!
+
+#echo org.kde.konsole-$konsole_pid
+
+sleep 0.5 
+
+qdbus org.kde.konsole-$konsole_pid /konsole/MainWindow_1 org.kde.KMainWindow.activateAction split-view-left-right
+qdbus org.kde.konsole-$konsole_pid /konsole/MainWindow_1 org.kde.KMainWindow.activateAction split-view-top-bottom
+qdbus org.kde.konsole-$konsole_pid /Windows/1 org.kde.konsole.Window.setCurrentSession 1
+qdbus org.kde.konsole-$konsole_pid /konsole/MainWindow_1 org.kde.KMainWindow.activateAction split-view-top-bottom
+
+if [ "$fullscreen_flag" = true ] ; then
+  qdbus org.kde.konsole-$konsole_pid /konsole/MainWindow_1 org.kde.KMainWindow.activateAction fullscreen
+fi
+
+
