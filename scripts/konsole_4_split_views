@@ -11,8 +11,6 @@ done
 konsole &
 konsole_pid=$!
 
-#echo org.kde.konsole-$konsole_pid
-
 sleep 0.5 
 
 qdbus org.kde.konsole-$konsole_pid /konsole/MainWindow_1 org.kde.KMainWindow.activateAction split-view-left-right
@@ -23,5 +21,3 @@ qdbus org.kde.konsole-$konsole_pid /konsole/MainWindow_1 org.kde.KMainWindow.act
 if [ "$fullscreen_flag" = true ] ; then
   qdbus org.kde.konsole-$konsole_pid /konsole/MainWindow_1 org.kde.KMainWindow.activateAction fullscreen
 fi
-
-

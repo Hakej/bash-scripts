@@ -5,8 +5,7 @@ protondb_url_query="search?q="
 
 url=$protondb_url
 
-if [ $# -ne 0 ] 
-then
+if [ $# -ne 0 ]; then
  url+=$protondb_url_query
  for var in "$@" 
  do
@@ -14,4 +13,4 @@ then
  done
 fi
 
-firefox $url &
+xdg-open $url &

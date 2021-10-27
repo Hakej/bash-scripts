@@ -3,8 +3,8 @@
 url="https://www.protondb.com/search?q="
 
 game_name=$(kdialog --inputbox "Insert game name" --title "protondb")
-
-if [ -n "$game_name"]; then
+echo $game_name
+if [ -z "$game_name" ]; then
     if [ -t 1 ]; then
         echo "Error: You need to specify the game name."
     else
@@ -18,5 +18,4 @@ do
     url+=$var+"+"
 done
 
-vivaldi $url &
-#firefox $url &
+xdg-open $url &
