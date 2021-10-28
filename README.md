@@ -1,2 +1,2 @@
 # Linux Scripts
-Collection of scripts/shortcuts I'm using on Linux operating systems.
+Collection of files I'm using on Linux operating systems.
