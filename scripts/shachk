@@ -1,21 +1,32 @@
 #!/bin/bash
 
-if [ "$#" -ne 2 ]; then
-    echo "Illegal number of parameters"
-    exit -1
+type=""
+
+while getopts 't:' flag; do
+	case "${flag}" in
+	t) type="${OPTARG}" ;;
+	esac
+done
+
+file_name=$1
+passed_result=$2
+sha_command="shasum"
+
+if [ -n "$type" ]; then
+	sha_command="$sha_command -a $type"
+	file_name=$3
+	passed_result=$4
 fi
 
-sha_result=$(sha1sum $1 | sed s/"  "$1//)
+echo "Using $sha_command..."
 
-if $sha_result; then
-    exit -1
-fi
+sha_result=$($sha_command $file_name | sed s/"  "$file_name//)
 
 echo "Result: |$sha_result|"
-echo "Passed: |$2|"
+echo "Passed: |$passed_result|"
 
-if [ "$sha_result" == "$2" ]; then
- echo $'\e[1;32m'Check sum match.$'\e[0m'
+if [ "$sha_result" == "$passed_result" ]; then
+    echo $'\e[1;32m'Check sum match.$'\e[0m'
 else
- echo $'\e[1;31m'Check sum doesn\'t match!!!$'\e[0m'
+    echo $'\e[1;31m'Check sum doesn\'t match!!!$'\e[0m'
 fi
